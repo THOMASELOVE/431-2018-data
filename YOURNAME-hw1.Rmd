@@ -11,88 +11,59 @@ output:
 ```{r setup, message=FALSE}
 knitr::opts_chunk$set(comment=NA)
 options(width = 70)
-
-library(MASS); library(tidyverse)
-## make sure these libraries are installed in R
-## always need tidyverse, also need MASS for HW 1
 ```
 
-```{r create_hw1_tibble}
-hw1 <- tbl_df(faithful)
-hw1
+```{r load_packages, message = FALSE, warning = FALSE}
+library(tidyverse)
+## always need tidyverse, can include other packages too
 ```
 
 # Question 1
 
-Begin typing your answer to Question 1 here. Use complete sentences.
+Begin typing your answer to Question 1 here. Use complete sentences to explain what the result of your code means in terms of answering the question we asked.
 
-If you need to build some code to answer a question, create a chunk of code like the one below, which looks at eruption times, rather than waiting times, so it's not helpful to us. It's also not very attractive, and not labeled effectively.
+If you need to build some code to answer a question (as you will in Questions 1-3 and 5-6), create a chunk of code like the one below, which doesn't answer our question 1, but may be helpful to you anyway.
 
-```{r q01_histogram}
-ggplot(hw1, aes(x = eruptions)) +
-  geom_histogram()
+```{r q1_count_inmetro}
+midwest %>%
+    count(inmetro)  
 ```
 
 # Question 2
 
-Here's where you should type in your answer to Question 2. You might want to include some code again. Here's an approach that yields the mean of the middle 80% of the eruption durations (also not useful to us directly, of course.)
+Here's where you should type in your answer to Question 2. You will need to include some code again. Here's an approach that yields the total population of Cook County in the state of Illinois.
 
-```{r q02_trimmed_mean_durations}
-mean(hw1$eruptions, trim = 0.1)
+```{r q2_density_cook_county}
+midwest %>%
+    filter(state == "IL") %>%
+    filter(county == "COOK") %>%
+    select(state, county, poptotal)
 ```
 
 # Question 3
 
-Answer to Question 3 goes here.
+Your answer to Question 3 goes here. Here's a histogram of the  natural logarithm of the population density in the available ounties. Of course, again, that's not what you'll need to be doing, and the "improvements" I've made here are pretty weak. I'm hoping you'll do better.
+
+```{r q3_popdensity_histogram}
+ggplot(midwest, aes(x = log(popdensity))) +
+    geom_histogram(bins = 20, col = "white") + 
+    labs(title = "This deserves a better title.",
+         y = "Number of Counties")
+```
 
 # Question 4
 
+Replace this text with your response to Question 4.
+
 # Question 5
+
+Your code (and a brief description of your approach, written in complete sentences) for Question 5 goes here.
 
 # Question 6
 
+Replace this text with your response to Question 6.
+
 # Question 7
 
-# Question 8
-
-Now, you need to build a scatterplot. I'm looking for you to use the ggplot2 library again, so that might start out as something like this chunk.
-
-```{r q08_scatterplot_draft}
-ggplot(hw1, aes(x = eruptions, y = waiting)) +
-  geom_point()
-```
-
-And that's a reasonable start, although it could use a title and some more meaningful axis titles, certainly. In question 10, you'll need to add a straight line model to the plot - you might consider whether a loess smooth would be useful here.
-
-# Question 9
-
-To get a correlation of waiting time with eruption duration, you would probably use a function like the one shown in the chunk below. 
-
-```{r q09_correlation}
-cor(hw1$waiting, hw1$eruptions)
-```
-
-Of course, you'd then need to interpret that result. It might help to know that this numerical summary goes from -1 (indicating a perfect inverse linear relationship) to +1 (indicating a perfect direct linear relationship) with 0 indicating no linear relationship. You'll probably want to think about whether the relationship you saw in the scatterplot above was well matched by a straight line model.
-
-# Question 10
-
-Replace this text with your Question 10 answer here.
-
-# Question 11
-
-You'll need to insert a chunk of code here to create the `hw1extra` file, using the suggestion from the Assignment itself.
-
-Next, you'll need to redo the last three questions.
-
-## 11a. Question 8 for the new data
-
-Replace this text with your code and text to address question 8 using the new data.
-
-## 11b. Question 9 for the new data
-
-Replace this text with your code and text to address question 9 using the new data.
-
-## 11c. Question 10 for the new data
-
-Replace this text with your code and text to address question 10 using the new data.
+Replace this text with your response to Question 7. Make sure you have changed the title and author of this, back in the YAML section at the very top of this file, and make sure you save this file by inserting your actual name, rather than just calling it YOURNAME-hw1.Rmd. 
 
