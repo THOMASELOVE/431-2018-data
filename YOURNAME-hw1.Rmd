@@ -42,7 +42,7 @@ midwest %>%
 
 # Question 3
 
-Your answer to Question 3 goes here. Here's a histogram of the  natural logarithm of the population density in the available ounties. Of course, again, that's not what you'll need to be doing, and the "improvements" I've made here are pretty weak. I'm hoping you'll do better.
+Your answer to Question 3 goes here. Here's a histogram of the  natural logarithm of the population density in the available counties. Of course, again, that's not what you'll need to be doing, and the "improvements" I've made here are pretty weak. I'm hoping you'll do better.
 
 ```{r q3_popdensity_histogram}
 ggplot(midwest, aes(x = log(popdensity))) +
