@@ -1,4 +1,4 @@
-id,age,sex,diabetes,nses,bmi1,sbp1,insurance,tobacco,statin,diuretic,sbp2
+subj_id,age,sex,diabetes,nses,bmi1,sbp1,insurance,tobacco,statin,diuretic,sbp2
 A0001,58,F,No,Low,24.41,147,Medicaid,never,0,1,138
 A0004,65,F,No,Very Low,50.5,134,Medicaid,never,1,1,134
 A0005,61,F,Yes,Very Low,29.76,170,Medicaid,current,1,1,140
